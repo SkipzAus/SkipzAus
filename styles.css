@@ -1,0 +1,174 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-bottom: 40px; /* Prevent content overlap with fixed footer */
+}
+
+/* Header Styling */
+header {
+    background-color: #000000;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    position: fixed;  /* Fixed to the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+	transition: margin-left 0.3s ease;
+}
+
+
+/* Main Content Styling */
+main {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 50px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px; /* Adds space below header */
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0; /* Sidebar starts off hidden */
+    height: 100%;
+    background-color: #000;
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease;
+    overflow: hidden; /* Prevents overflow when closed */
+}
+
+.sidebar.open {
+    width: 250px; /* Sidebar width when open */
+    overflow: auto; /* Allows scrolling of content inside when sidebar is open */
+}
+
+.sidebar h2 {
+    text-align: left;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove any default margins for a clean layout */
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Content Area Styling */
+.content {
+    margin-left: 0; /* Initially no margin */
+    padding: 0px;
+    background-color: #f4f4f4;
+    min-height: calc(100vh - 50px); /* Full viewport height minus the height of header and footer */
+    height: calc(100% - 250px); /* Subtract the sidebar width to leave space for content */
+    transition: margin-left 0.3s ease;
+	position: static
+}
+
+
+
+
+.content.shift {
+    margin-left: 250px; /* Content shifts when sidebar is open */
+}
+
+/* Header shift when sidebar is open */
+header.shift {
+    margin-left: 250px; /* Move the header to the right along with content */
+}
+
+/* Toggle Button Styling */
+.toggle-btn {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    font-size: 1.5em;
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2000;
+    display: block; /* Always show the toggle button */
+}
+
+/* Sidebar open class */
+.sidebar.open {
+    width: 250px; /* Sidebar width when open */
+}
+
+.content.shift {
+    margin-left: 250px; /* Content shifts when sidebar is open */
+}
+
+/* Ensuring Footer and Header Styling for Small Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0; /* Sidebar starts closed on small screens */
+    }
+
+    .content.shift {
+        margin-left: 0;
+    }
+}
+
+/* Responsive Design for Smaller Devices */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0; /* Sidebar starts closed on small screens */
+    }
+
+    .content.shift {
+        margin-left: 0;
+    }
+}
